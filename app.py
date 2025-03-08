@@ -208,6 +208,7 @@ def run_stream(user_input, file, selected_assistant_id):
     with client.beta.threads.runs.stream(
         thread_id=st.session_state.thread.id,
         assistant_id=selected_assistant_id,
+        instructions=instructions,  # Pass system instructions here
         event_handler=EventHandler(),
     ) as stream:
         stream.until_done()
