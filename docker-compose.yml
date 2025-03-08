@@ -4,10 +4,6 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    environment:
-      - "OPENAI_API_KEY=${OPENAI_API_KEY}"
-      - "APP_ENABLED_FILE_UPLOAD_MESSAGE=${APP_ENABLED_FILE_UPLOAD_MESSAGE}"
-      - "AUTHENTICATION_REQUIRED=${AUTHENTICATION_REQUIRED}"
-      - "ASSISTANT_ID=${ASSISTANT_ID}"
-      - "ASSISTANT_TITLE=${ASSISTANT_TITLE}"
-      - "OPENAI_ASSISTANTS=${OPENAI_ASSISTANTS}"
+    env_file: .env
+    ports:
+      - "8501:8501"
